@@ -1,0 +1,477 @@
+//Sass Variables
+$accent-color: #15a4fa;
+$secondary-color: #2d3950;
+$bg-secondary: #f6f9f9;
+$color-white: #fff;
+$font-secondary: #999999;
+$nav-li-ani-dur: 1s;
+
+//Sass Mixins
+@mixin mobile {
+  @media (min-width: 576px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin large-screen {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin custom-media {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+//Keyframes declaration
+
+@keyframes mb-nav-ani {
+  0% {
+    transform: translateY(300%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes down-arr-ind {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+// html {
+//   scroll-behavior: smooth;
+// }
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+p,
+a,
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  padding: 0;
+}
+
+//Nav Bar customize
+header {
+  box-shadow: 0px -5px 8px 0px rgba(0, 0, 0, 0.75);
+}
+.navbar {
+  min-height: 75px;
+  background-color: $color-white;
+  transition: min-height 0.5s ease;
+}
+
+.nav-scrolled {
+  min-height: 60px !important;
+}
+
+.navbar-brand img {
+  width: 120px;
+}
+
+.navbar ul {
+  flex-direction: row;
+}
+
+.navbar ul li a {
+  color: #2d3950;
+  font-size: 14px;
+  font-weight: bold;
+}
+.navbar ul li {
+  margin-left: 40px;
+}
+
+.navbar ul li a:hover {
+  color: $accent-color;
+}
+
+//Nav toggler customize
+.cs-nav-tog {
+  cursor: pointer;
+  z-index: 999999;
+  width: 25px;
+  height: 20px;
+  position: relative;
+  transition: all 0.5s ease;
+  display: none;
+
+  @include custom-media {
+    display: inherit;
+  }
+
+  span {
+    width: 25px;
+    height: 4px;
+    background-color: $accent-color;
+    transition: all 0.5s ease;
+    display: block;
+    position: absolute;
+    border-radius: 2px;
+    transform-origin: center;
+    transform: rotate(0);
+  }
+
+  span:nth-child(1) {
+    top: 0;
+  }
+  span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  span:nth-child(3) {
+    bottom: 0;
+  }
+}
+
+.nav-opened .cs-nav-tog {
+  span {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+    background-color: $secondary-color;
+  }
+  span:nth-child(1) {
+    transform: rotate(45deg);
+  }
+  span:nth-child(2) {
+    transform: scaleX(0.001);
+  }
+  span:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+}
+
+//Mobile nave customization
+.cs-nav-wrap {
+  @include custom-media {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: -100%;
+    left: 0;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 999;
+    background-color: $color-white;
+    transition: all 0.8s ease;
+
+    ul {
+      justify-content: center !important;
+      align-items: center !important;
+      flex-direction: column !important;
+      margin-left: 0 !important;
+
+      li {
+        margin: 0;
+
+        a {
+          font-size: 24px;
+          color: $accent-color;
+          font-weight: 300;
+          transition: color 0.5s ease;
+        }
+        a:hover {
+          color: $secondary-color;
+        }
+      }
+    }
+  }
+}
+
+.nav-opened .cs-nav-wrap {
+  @include custom-media {
+    transform: translateY(100%);
+    transition: all 0.8s ease;
+
+    ul {
+      @for $i from 1 to 5 {
+        $nav-li-ani-dur: $nav-li-ani-dur + 0.4s;
+        li:nth-child(#{$i}) {
+          animation-name: mb-nav-ani;
+          animation-duration: $nav-li-ani-dur;
+        }
+      }
+    }
+  }
+}
+
+//Banner Section customize
+.banner {
+  background-image: url(../images/strict-banner.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.banner .row {
+  height: 100vh;
+}
+
+.banner {
+  color: $color-white;
+  position: relative;
+  h1 {
+    font-size: 80px;
+    font-weight: 600;
+    position: relative;
+    line-height: 90px;
+
+    @include tablet {
+      font-size: 100px;
+      line-height: 130px;
+    }
+
+    @include desktop {
+      font-size: 100px;
+      line-height: 130px;
+    }
+    @include large-screen {
+      font-size: 100px;
+      line-height: 130px;
+    }
+  }
+  h1:after {
+    content: "";
+    width: 80%;
+    height: 2px;
+    background-color: $accent-color;
+    display: block;
+    margin: 0 auto;
+  }
+
+  p {
+    font-size: 16px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+
+    @include tablet {
+      font-size: 18px;
+    }
+    @include desktop {
+      font-size: 20px;
+      margin-bottom: 40px;
+      margin-top: 25px;
+    }
+    @include large-screen {
+      font-size: 20px;
+      margin-bottom: 40px;
+      margin-top: 25px;
+    }
+  }
+
+  .btn {
+    background: transparent;
+    border: 1px solid $accent-color;
+    width: 170px;
+    height: 50px;
+    font-size: 18px;
+    transition: all 0.5s ease;
+    border-radius: 3px;
+  }
+  .btn:hover {
+    background: $accent-color;
+  }
+
+  a {
+    color: white;
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-name: down-arr-ind;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+}
+
+//feature section customize
+
+.feature {
+  background-color: $bg-secondary;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  @include desktop {
+    padding-top: 70px;
+    padding-bottom: 90px;
+  }
+
+  @include large-screen() {
+    padding-top: 70px;
+    padding-bottom: 90px;
+  }
+}
+
+.feature .section-title {
+  p {
+    font-size: 16px;
+    color: $font-secondary;
+    line-height: 24px;
+
+    @include tablet {
+      font-size: 18px;
+      line-height: 24px;
+    }
+    @include desktop {
+      font-size: 20px;
+      line-height: 32px;
+    }
+    @include large-screen {
+      font-size: 20px;
+      line-height: 32px;
+    }
+  }
+}
+
+.section-title {
+  h1 {
+    font-size: 28px;
+    color: $secondary-color;
+    font-weight: 400;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+
+    @include tablet {
+      font-size: 28px;
+    }
+    @include desktop {
+      font-size: 40px;
+    }
+    @include large-screen {
+      font-size: 40px;
+    }
+  }
+  p {
+    font-size: 15px;
+    color: $font-secondary;
+
+    @include tablet {
+      font-size: 15px;
+    }
+    @include desktop {
+      font-size: 15px;
+    }
+    @include large-screen {
+      font-size: 15px;
+    }
+  }
+}
+
+//service section customize
+
+.service {
+  padding-top: 15px;
+  padding-bottom: 50px;
+
+  @include desktop {
+    padding-top: 30px;
+    padding-bottom: 69px;
+  }
+  @include large-screen {
+    padding-top: 30px;
+    padding-bottom: 69px;
+  }
+}
+
+.srvc-sin {
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-top: 35px;
+
+  span {
+    width: 60px;
+    height: 60px;
+    border-radius: 3px;
+    display: block;
+    background: linear-gradient(to right, #48baff 50%, #5fc3ff 50%);
+    margin: auto;
+
+    @include tablet {
+      width: 80px;
+      height: 80px;
+    }
+    @include desktop {
+      width: 80px;
+      height: 80px;
+    }
+    @include large-screen {
+      width: 80px;
+      height: 80px;
+    }
+
+    i {
+      font-size: 24px;
+      color: white;
+      line-height: 60px;
+
+      @include tablet {
+        font-size: 32px;
+        color: white;
+        line-height: 80px;
+      }
+      @include desktop {
+        font-size: 32px;
+        color: white;
+        line-height: 80px;
+      }
+      @include large-screen {
+        font-size: 32px;
+        color: white;
+        line-height: 80px;
+      }
+    }
+  }
+
+  h2 {
+    font-size: 22px;
+    color: $secondary-color;
+    margin-top: 20px;
+    margin-bottom: 13px;
+  }
+
+  p {
+    font-size: 15px;
+    color: $font-secondary;
+  }
+}
+
+//portfolio section customize
+.portfolio {
+  background-color: $bg-secondary;
+}
