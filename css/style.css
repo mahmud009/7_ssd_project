@@ -577,6 +577,8 @@ header {
   background-color: #f6f9f9;
   padding-top: 40px;
   padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 @media (min-width: 768px) {
@@ -624,8 +626,26 @@ header {
 
 .portfolio-single {
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
+  padding-left: 8px;
+  padding-right: 8px;
   overflow: hidden;
+}
+
+@media (min-width: 992px) {
+  .portfolio-single {
+    margin-bottom: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .portfolio-single {
+    margin-bottom: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 
 .portfolio-single .nav {

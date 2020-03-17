@@ -478,6 +478,8 @@ header {
   background-color: $bg-secondary;
   padding-top: 40px;
   padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 
   @include tablet {
     padding-top: 50px;
@@ -509,8 +511,22 @@ header {
 
 .portfolio-single {
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
+  padding-left: 8px;
+  padding-right: 8px;
   overflow: hidden;
+
+  @include desktop {
+    margin-bottom: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  @include large-screen {
+    margin-bottom: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
   .nav {
     position: absolute;
     top: 150%;
