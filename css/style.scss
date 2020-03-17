@@ -66,9 +66,9 @@ $nav-li-ani-dur: 1s;
   padding: 0;
   box-sizing: border-box;
 }
-// html {
-//   scroll-behavior: smooth;
-// }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: "Lato", sans-serif;
@@ -110,6 +110,7 @@ header {
   color: #2d3950;
   font-size: 14px;
   font-weight: bold;
+  transition: all 0.5s ease;
 }
 .navbar ul li {
   margin-left: 40px;
@@ -261,7 +262,7 @@ header {
       line-height: 130px;
     }
     @include large-screen {
-      font-size: 100px;
+      font-size: 120px;
       line-height: 130px;
     }
   }
@@ -474,4 +475,243 @@ header {
 //portfolio section customize
 .portfolio {
   background-color: $bg-secondary;
+  padding-top: 40px;
+  padding-bottom: 20px;
+
+  @include tablet {
+    padding-top: 50px;
+    padding-bottom: 40px;
+  }
+  @include desktop {
+    padding-top: 70px;
+    padding-bottom: 50px;
+  }
+  @include large-screen {
+    padding-top: 70px;
+    padding-bottom: 50px;
+  }
+
+  .row {
+    margin-top: 40px;
+
+    @include tablet {
+      margin-top: 50px;
+    }
+    @include desktop {
+      margin-top: 70px;
+    }
+    @include large-screen {
+      margin-top: 70px;
+    }
+  }
+}
+
+.portfolio-single {
+  position: relative;
+  margin-bottom: 30px;
+  overflow: hidden;
+  .nav {
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 1s ease;
+
+    li {
+      width: 30px;
+      height: 30px;
+      border: 1px solid $color-white;
+      border-radius: 3px;
+      margin-left: 10px;
+
+      @include tablet {
+        width: 40px;
+        height: 40px;
+      }
+      @include desktop {
+        width: 40px;
+        height: 40px;
+      }
+      @include large-screen() {
+        width: 40px;
+        height: 40px;
+      }
+
+      a {
+        color: $color-white;
+        display: block;
+        font-size: 12px;
+        line-height: 30px;
+
+        @include tablet {
+          line-height: 38px;
+        }
+        @include desktop {
+          line-height: 38px;
+        }
+        @include large-screen() {
+          line-height: 38px;
+        }
+      }
+    }
+    li:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+.prt-sin-img {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  overflow: hidden;
+}
+
+.prt-sin-img::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: $accent-color;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.9;
+  transform: translateY(-100%);
+  transition: all 0.5s ease;
+}
+
+.portfolio-single:hover {
+  .nav {
+    top: 50%;
+  }
+}
+
+.portfolio-single:hover .prt-sin-img::before {
+  transform: translateY(0);
+}
+
+//Contact form section styling
+
+.contact-form {
+  background-image: url(../images/contact-bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  padding-top: 70px;
+  padding-bottom: 80px;
+}
+
+.contact-form .section-title {
+  position: relative;
+  z-index: 999;
+  h1 {
+    color: $color-white !important;
+    margin-bottom: 10px;
+  }
+  p {
+    margin-bottom: 50px;
+  }
+}
+
+.contact-form::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #2d3950;
+  opacity: 0.9;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background-color: transparent;
+  padding: 23px 20px;
+  font-size: 15px;
+  border-color: $font-secondary;
+  color: $font-secondary;
+  margin-bottom: 25px;
+
+  @include tablet {
+    padding: 23px 20px;
+  }
+  @include desktop {
+    padding: 25px 20px;
+  }
+  @include large-screen {
+    padding: 25px 20px;
+  }
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  background-color: transparent;
+  color: $font-secondary;
+}
+
+.contact-form .form-btm label {
+  color: $color-white;
+  margin-left: 12px;
+  font-size: 15px;
+}
+
+.contact-form input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+}
+
+.contact-form input[type="submit"] {
+  background: transparent;
+  border: 1px solid $accent-color;
+  width: 142px;
+  height: 50px;
+  font-size: 18px;
+  transition: all 0.5s ease;
+  border-radius: 3px;
+  color: white;
+  padding: 0;
+}
+.contact-form input[type="submit"]:hover {
+  background: $accent-color;
+}
+
+//footer section customize
+
+footer {
+  .row {
+    height: 90px;
+  }
+
+  p {
+    color: $font-secondary;
+    font-size: 15px;
+  }
+}
+
+footer .nav {
+  li {
+    width: 40px;
+    height: 40px;
+    background-color: #48baff;
+    text-align: center;
+    margin-left: 5px;
+    border-radius: 2px;
+    transition: background 0.5s ease;
+    a {
+      font-size: 15px;
+      color: $color-white;
+      line-height: 40px;
+      display: block;
+    }
+  }
+
+  li:first-child {
+    margin-left: 0;
+  }
+
+  li:hover {
+    background-color: darken(#48baff, 20%);
+  }
 }
