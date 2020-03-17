@@ -181,7 +181,7 @@ header {
 .cs-nav-wrap {
   @include custom-media {
     width: 100%;
-    height: 100vh;
+    height: 0;
     position: fixed;
     top: -100%;
     left: 0;
@@ -219,6 +219,7 @@ header {
   @include custom-media {
     transform: translateY(100%);
     transition: all 0.8s ease;
+    height: 100vh;
 
     ul {
       @for $i from 1 to 5 {
