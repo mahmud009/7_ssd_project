@@ -268,7 +268,13 @@ header {
 }
 
 .banner .row {
-  height: 100vh;
+  height: 400px;
+}
+
+@media (min-width: 992px) {
+  .banner .row {
+    height: 100vh;
+  }
 }
 
 .banner {
@@ -277,7 +283,7 @@ header {
 }
 
 .banner h1 {
-  font-size: 80px;
+  font-size: 48px;
   font-weight: 600;
   position: relative;
   line-height: 90px;
@@ -285,7 +291,7 @@ header {
 
 @media (min-width: 768px) {
   .banner h1 {
-    font-size: 100px;
+    font-size: 64px;
     line-height: 130px;
   }
 }
@@ -344,12 +350,20 @@ header {
 .banner .btn {
   background: transparent;
   border: 1px solid #15a4fa;
-  width: 170px;
-  height: 50px;
-  font-size: 18px;
+  width: 160px;
+  height: 40px;
+  font-size: 16px;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   border-radius: 3px;
+}
+
+@media (min-width: 992px) {
+  .banner .btn {
+    width: 170px;
+    height: 50px;
+    font-size: 18px;
+  }
 }
 
 .banner .btn:hover {
@@ -359,7 +373,7 @@ header {
 .banner a {
   color: white;
   position: absolute;
-  bottom: 70px;
+  bottom: 30px;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -371,6 +385,12 @@ header {
           animation-iteration-count: infinite;
   -webkit-animation-direction: alternate;
           animation-direction: alternate;
+}
+
+@media (min-width: 992px) {
+  .banner a {
+    bottom: 70px;
+  }
 }
 
 .feature {
@@ -815,6 +835,7 @@ header {
 .contact-form textarea:focus {
   background-color: transparent;
   color: #999999;
+  outline: 0 !important;
 }
 
 .contact-form .form-btm label {

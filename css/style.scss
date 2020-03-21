@@ -236,20 +236,24 @@ header {
 //Banner Section customize
 
 .banner .row {
-  height: 100vh;
+  height: 400px;
+
+  @include desktop {
+    height: 100vh;
+  }
 }
 
 .banner {
   color: $color-white;
   position: relative;
   h1 {
-    font-size: 80px;
+    font-size: 48px;
     font-weight: 600;
     position: relative;
     line-height: 90px;
 
     @include tablet {
-      font-size: 100px;
+      font-size: 64px;
       line-height: 130px;
     }
 
@@ -294,11 +298,17 @@ header {
   .btn {
     background: transparent;
     border: 1px solid $accent-color;
-    width: 170px;
-    height: 50px;
-    font-size: 18px;
+    width: 160px;
+    height: 40px;
+    font-size: 16px;
     transition: all 0.5s ease;
     border-radius: 3px;
+
+    @include desktop {
+      width: 170px;
+      height: 50px;
+      font-size: 18px;
+    }
   }
   .btn:hover {
     background: $accent-color;
@@ -307,13 +317,17 @@ header {
   a {
     color: white;
     position: absolute;
-    bottom: 70px;
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
     animation-name: down-arr-ind;
     animation-duration: 2s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+
+    @include desktop {
+      bottom: 70px;
+    }
   }
 }
 
@@ -661,6 +675,7 @@ header {
 .contact-form textarea:focus {
   background-color: transparent;
   color: $font-secondary;
+  outline: 0 !important;
 }
 
 .contact-form .form-btm label {
